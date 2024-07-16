@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picture Editor - With HTML, CSS & JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Picture Editor</h1>
+      <p>
+        Take and edit your pictures <strong>online</strong>, with
+        <strong>just HTML, CSS and JavaScript</strong>!
+      </p>
+      <p>
+        The really interesting thing about this tool is the use of the
+        <em>"capture"</em> attribute in an input of type <em>"file"</em><br />
+        Many people are still unaware of this attribute and it is surprising
+        that you can develop a picture editor with just HTML, CSS and a bit of
+        JavaScript.
+      </p>
+    </header>
+    <main>
+      <section>
+        <form>
+          <label for="picture" class="custom-file-upload">
+            Take a picture!
+            <input
+              type="file"
+              id="picture"
+              name="picture"
+              accept="image/*"
+              capture="environment"
+            />
+          </label>
+        </form>
+        <canvas id="canvas"></canvas>
+        <button onclick="downloadImage()">Download Image</button>
+      </section>
+      <section id="controls">
+        <button onclick="rotateImage()">Rotate</button>
+        <button onclick="flipImage()">Flip</button>
+
+        <label for="brightness">Brightness:
+        <input
+          type="range"
+          id="brightness"
+          min="0"
+          max="200"
+          value="100"
+          onchange="adjustBrightness(this.value)"
+        /></label>
+
+        <label for="contrast">Contrast:
+        <input
+          type="range"
+          id="contrast"
+          min="0"
+          max="200"
+          value="100"
+          onchange="adjustContrast(this.value)"
+        /></label>
+
+        <label for="blackandwhite">
+          <input
+            type="checkbox"
+            name="blackandwhite"
+            id="blackAndWhite"
+            onchange="toggleBlackAndWhite()"
+          />
+          Black & White
+        </label>
+
+        <label for="blur">Blur:
+        <input
+          type="range"
+          id="blur"
+          min="0"
+          max="10"
+          value="0"
+          step="0.1"
+          onchange="adjustBlur(this.value)"
+        /></label>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
